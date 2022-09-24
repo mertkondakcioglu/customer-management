@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  customer-app:
+    image: 'customer:latest'
+    build:
+      context: .
+    container_name: customer-app
+    depends_on:
+      - customer-db
+    environment:
+      - SPRING_FLYWAY_URL=jdbc:mysql://customer-db:3306
+      - SPRING_DATASOURCE_URL=jdbc:mysql://customer-db:3306/customer?nullCatalogMeansCurrent=true
+    ports:
+      - '8080:8080'
+
+  customer-db:
+    image: 'mysql:latest'
+    container_name: customer-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - '3306:3306'
