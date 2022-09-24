@@ -12,7 +12,7 @@
 	<artifactId>customermanagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customer-management</name>
-	<description>A customer management system</description>
+	<description>Customer Management</description>
 	<properties>
 		<java.version>17</java.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
