@@ -1,6 +1,6 @@
 package com.qnbeyond.customermanagement.common.mapper;
 
-import com.qnbeyond.customermanagement.model.dto.request.CustomerRequest;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 import org.mapstruct.*;
 

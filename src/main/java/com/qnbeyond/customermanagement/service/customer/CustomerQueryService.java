@@ -1,4 +1,4 @@
-package com.qnbeyond.customermanagement.service;
+package com.qnbeyond.customermanagement.service.customer;
 
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 
@@ -8,4 +8,6 @@ public interface CustomerQueryService {
     List<CustomerEntity> getAll();
 
     CustomerEntity getById(Long id);
+
+    CustomerEntity getByEmail(String email);
 }

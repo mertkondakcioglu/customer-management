@@ -1,9 +1,10 @@
 package com.qnbeyond.customermanagement.controller;
 
 import com.qnbeyond.customermanagement.common.exception.NotFoundException;
+import com.qnbeyond.customermanagement.controller.customer.CustomerQueryController;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
-import com.qnbeyond.customermanagement.service.CustomerQueryService;
+import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

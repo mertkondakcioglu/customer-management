@@ -4,6 +4,7 @@ import com.qnbeyond.customermanagement.common.exception.NotFoundException;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
 import com.qnbeyond.customermanagement.repository.CustomerQueryRepository;
+import com.qnbeyond.customermanagement.service.customer.CustomerQueryServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

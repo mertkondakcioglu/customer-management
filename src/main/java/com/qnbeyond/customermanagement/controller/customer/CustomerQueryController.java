@@ -1,11 +1,12 @@
-package com.qnbeyond.customermanagement.controller;
+package com.qnbeyond.customermanagement.controller.customer;
 
 import com.qnbeyond.customermanagement.common.mapper.CustomerResponseMapper;
 import com.qnbeyond.customermanagement.model.dto.response.BaseResponse;
-import com.qnbeyond.customermanagement.model.dto.response.CustomerResponse;
-import com.qnbeyond.customermanagement.service.CustomerQueryService;
+import com.qnbeyond.customermanagement.model.dto.response.customer.CustomerResponse;
+import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/customer")
+@PreAuthorize("hasRole(T(com.qnbeyond.customermanagement.common.util.CustomerManagementConstants).USER)")
 @Validated
 public class CustomerQueryController {
     private final CustomerQueryService customerQueryService;

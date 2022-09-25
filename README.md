@@ -22,8 +22,15 @@ password: 1234
 
 ## Project Info
 
+### Login credentials
+
+```
+email: mertkondakcioglu@gmail.com
+password: 12345678
+```
+
 - This project is using Maven and JDK17.
 - If you install project image from docker compose file, then be sure MySQL running at least 30 seconds. Otherwise,
   project can not be started.
-- Postman collection JSON link: https://www.getpostman.com/collections/89431b6a72896dffa812
+- Postman collection JSON link: https://www.getpostman.com/collections/b192d90684f6072c3b8c
 - API Documentation: http://localhost:8080/swagger-ui/index.html#/

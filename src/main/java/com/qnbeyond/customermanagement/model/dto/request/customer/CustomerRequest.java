@@ -1,4 +1,4 @@
-package com.qnbeyond.customermanagement.model.dto.request;
+package com.qnbeyond.customermanagement.model.dto.request.customer;
 
 import lombok.Getter;
 import lombok.Setter;

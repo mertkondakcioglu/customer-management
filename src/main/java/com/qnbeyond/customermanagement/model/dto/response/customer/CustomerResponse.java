@@ -1,5 +1,6 @@
-package com.qnbeyond.customermanagement.model.dto.response;
+package com.qnbeyond.customermanagement.model.dto.response.customer;
 
+import com.qnbeyond.customermanagement.model.dto.response.AbstractResponse;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -16,3 +16,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+
+jwt:
+  secret: qnbeyond2022
+  expirationMs: 86400000

@@ -1,10 +1,12 @@
 package com.qnbeyond.customermanagement.service;
 
-import com.qnbeyond.customermanagement.model.dto.request.CustomerRequest;
 import com.qnbeyond.customermanagement.model.dto.request.CustomerRequestBuilder;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
 import com.qnbeyond.customermanagement.repository.CustomerCommandRepository;
+import com.qnbeyond.customermanagement.service.customer.CustomerCommandServiceImpl;
+import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

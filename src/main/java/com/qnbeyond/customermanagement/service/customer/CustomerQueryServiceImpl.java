@@ -1,4 +1,4 @@
-package com.qnbeyond.customermanagement.service;
+package com.qnbeyond.customermanagement.service.customer;
 
 import com.qnbeyond.customermanagement.common.exception.NotFoundException;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
@@ -23,5 +23,11 @@ public class CustomerQueryServiceImpl implements CustomerQueryService {
     public CustomerEntity getById(Long id) {
         return customerQueryRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id.toString()));
+    }
+
+    @Override
+    public CustomerEntity getByEmail(String email) {
+        return customerQueryRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException(email));
     }
 }

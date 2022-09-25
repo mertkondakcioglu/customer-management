@@ -1,10 +1,11 @@
 package com.qnbeyond.customermanagement.controller;
 
-import com.qnbeyond.customermanagement.model.dto.request.CustomerRequest;
+import com.qnbeyond.customermanagement.controller.customer.CustomerCommandController;
 import com.qnbeyond.customermanagement.model.dto.request.CustomerRequestBuilder;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
-import com.qnbeyond.customermanagement.service.CustomerCommandService;
+import com.qnbeyond.customermanagement.service.customer.CustomerCommandService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

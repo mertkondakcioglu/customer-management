@@ -1,6 +1,6 @@
-package com.qnbeyond.customermanagement.service;
+package com.qnbeyond.customermanagement.service.customer;
 
-import com.qnbeyond.customermanagement.model.dto.request.CustomerRequest;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
 
 public interface CustomerCommandService {

@@ -1,12 +1,13 @@
-package com.qnbeyond.customermanagement.controller;
+package com.qnbeyond.customermanagement.controller.customer;
 
 import com.qnbeyond.customermanagement.common.mapper.CustomerResponseMapper;
-import com.qnbeyond.customermanagement.model.dto.request.CustomerRequest;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.qnbeyond.customermanagement.model.dto.response.BaseResponse;
-import com.qnbeyond.customermanagement.model.dto.response.CustomerResponse;
-import com.qnbeyond.customermanagement.service.CustomerCommandService;
+import com.qnbeyond.customermanagement.model.dto.response.customer.CustomerResponse;
+import com.qnbeyond.customermanagement.service.customer.CustomerCommandService;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/customer")
+@PreAuthorize("hasRole(T(com.qnbeyond.customermanagement.common.util.CustomerManagementConstants).USER)")
 public class CustomerCommandController {
     private final CustomerCommandService customerCommandService;
     private final CustomerResponseMapper mapper = Mappers.getMapper(CustomerResponseMapper.class);

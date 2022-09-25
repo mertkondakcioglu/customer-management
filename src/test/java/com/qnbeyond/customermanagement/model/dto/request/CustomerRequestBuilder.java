@@ -1,6 +1,7 @@
 package com.qnbeyond.customermanagement.model.dto.request;
 
 import com.qnbeyond.customermanagement.model.TestDataBuilder;
+import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
 
 public class CustomerRequestBuilder extends TestDataBuilder<CustomerRequest> {
 
