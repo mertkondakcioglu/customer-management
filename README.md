@@ -33,4 +33,4 @@ password: 12345678
 - If you install project image from docker compose file, then be sure MySQL running at least 30 seconds. Otherwise,
   project can not be started.
 - Postman collection JSON link: https://www.getpostman.com/collections/b192d90684f6072c3b8c
-- API Documentation: http://localhost:8080/swagger-ui/index.html#/
+- API Documentation: http://localhost:8080/swagger-ui/

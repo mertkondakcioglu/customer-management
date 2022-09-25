@@ -20,7 +20,7 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
     private CustomerCommandService customerCommandService;
 
     private static final String CUSTOMER_ENDPOINT = "/api/v1/customer";
-    private static final String GET_BY_ID_ENDPOINT = CUSTOMER_ENDPOINT + "/{id}";
+    private static final String PATH_VARIABLE_ID_ENDPOINT = CUSTOMER_ENDPOINT + "/{id}";
 
     @Test
     void givenValidCustomerRequest_whenCreateCustomerEntity_thenReturnCustomerResponse() {
@@ -47,7 +47,7 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
         when(customerCommandService.update(anyLong(), any(CustomerRequest.class))).thenReturn(customerEntity);
 
         client.put()
-                .uri(GET_BY_ID_ENDPOINT, customerEntity.getId())
+                .uri(PATH_VARIABLE_ID_ENDPOINT, customerEntity.getId())
                 .bodyValue(customerRequest)
                 .exchange()
                 .expectStatus().isOk()
@@ -64,7 +64,7 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
         when(customerCommandService.delete(anyLong())).thenReturn(customerEntity);
 
         client.delete()
-                .uri(GET_BY_ID_ENDPOINT, customerEntity.getId())
+                .uri(PATH_VARIABLE_ID_ENDPOINT, customerEntity.getId())
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()

@@ -4,6 +4,8 @@ import com.qnbeyond.customermanagement.common.mapper.CustomerResponseMapper;
 import com.qnbeyond.customermanagement.model.dto.response.BaseResponse;
 import com.qnbeyond.customermanagement.model.dto.response.customer.CustomerResponse;
 import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,12 +22,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/customer")
 @PreAuthorize("hasRole(T(com.qnbeyond.customermanagement.common.util.CustomerManagementConstants).USER)")
+@Api(tags = "Customer")
 @Validated
 public class CustomerQueryController {
     private final CustomerQueryService customerQueryService;
     private final CustomerResponseMapper mapper = Mappers.getMapper(CustomerResponseMapper.class);
 
     @GetMapping
+    @ApiOperation(value = "Get All Customer")
     public BaseResponse<List<CustomerResponse>> getAll() {
         return BaseResponse.<List<CustomerResponse>>builder()
                 .data(mapper.map(customerQueryService.getAll()))
@@ -33,6 +37,7 @@ public class CustomerQueryController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value = "Get Customer By Id")
     public BaseResponse<CustomerResponse> getById(@PathVariable @NotNull Long id) {
         return BaseResponse.<CustomerResponse>builder()
                 .data(mapper.map(customerQueryService.getById(id)))

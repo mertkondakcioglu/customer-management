@@ -6,6 +6,8 @@ import com.qnbeyond.customermanagement.model.dto.request.auth.AuthRequest;
 import com.qnbeyond.customermanagement.model.dto.response.BaseResponse;
 import com.qnbeyond.customermanagement.model.dto.response.auth.AuthResponse;
 import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +23,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
+@Api(tags = "Auth")
 public class AuthController {
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
@@ -28,6 +31,7 @@ public class AuthController {
     private final CustomerResponseMapper mapper = Mappers.getMapper(CustomerResponseMapper.class);
 
     @PostMapping("/login")
+    @ApiOperation(value = "Login")
     public BaseResponse<AuthResponse> login(@RequestBody @Valid AuthRequest request) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));

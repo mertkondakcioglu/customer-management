@@ -10,6 +10,7 @@ import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -26,6 +27,9 @@ class CustomerCommandServiceTest extends AbstractUnitTest {
 
     @Mock
     private CustomerQueryService customerQueryService;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @Test
     void givenValidCustomerRequest_whenCreateCustomerEntity_thenReturnCustomerEntity() {

@@ -16,6 +16,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
 
 jwt:
   secret: qnbeyond2022
