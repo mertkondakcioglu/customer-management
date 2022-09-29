@@ -1,12 +1,12 @@
 package com.qnbeyond.customermanagement.service.customer;
 
 import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
+import com.qnbeyond.customermanagement.model.entity.Customer;
 
 public interface CustomerCommandService {
-    CustomerEntity create(CustomerRequest request);
+    Customer create(CustomerRequest request);
 
-    CustomerEntity update(Long id, CustomerRequest request);
+    Customer update(Long id, CustomerRequest request);
 
-    CustomerEntity delete(Long id);
+    Customer delete(Long id);
 }

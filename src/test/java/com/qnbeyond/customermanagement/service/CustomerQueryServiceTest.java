@@ -1,8 +1,8 @@
 package com.qnbeyond.customermanagement.service;
 
 import com.qnbeyond.customermanagement.common.exception.NotFoundException;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
+import com.qnbeyond.customermanagement.model.entity.Customer;
+import com.qnbeyond.customermanagement.model.entity.CustomerBuilder;
 import com.qnbeyond.customermanagement.repository.CustomerQueryRepository;
 import com.qnbeyond.customermanagement.service.customer.CustomerQueryServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -27,24 +27,24 @@ class CustomerQueryServiceTest extends AbstractUnitTest {
 
     @Test
     void happyPath_getAll() {
-        List<CustomerEntity> testCustomerBagEntities = Collections.singletonList(CustomerEntityBuilder.getValidCustomerEntity());
+        List<Customer> testCustomerBagEntities = Collections.singletonList(CustomerBuilder.getValidCustomer());
         when(customerQueryRepository.findAll()).thenReturn(testCustomerBagEntities);
 
-        List<CustomerEntity> customerBagEntities = customerQueryService.getAll();
+        List<Customer> customerBagEntities = customerQueryService.getAll();
         assertThat(testCustomerBagEntities).isEqualTo(customerBagEntities);
     }
 
     @Test
-    void givenValidId_whenGetCustomerEntity_thenReturnCustomerEntity() {
-        CustomerEntity testCustomerEntity = CustomerEntityBuilder.getValidCustomerEntity();
-        when(customerQueryRepository.findById(testCustomerEntity.getId())).thenReturn(Optional.of(testCustomerEntity));
+    void givenValidId_whenGetCustomer_thenReturnCustomer() {
+        Customer testCustomer = CustomerBuilder.getValidCustomer();
+        when(customerQueryRepository.findById(testCustomer.getId())).thenReturn(Optional.of(testCustomer));
 
-        CustomerEntity CustomerEntity = customerQueryService.getById(testCustomerEntity.getId());
-        assertThat(testCustomerEntity).isEqualTo(CustomerEntity);
+        Customer Customer = customerQueryService.getById(testCustomer.getId());
+        assertThat(testCustomer).isEqualTo(Customer);
     }
 
     @Test
-    void givenInvalidId_whenGetCustomerEntity_thenThrowNotFoundException() {
+    void givenInvalidId_whenGetCustomer_thenThrowNotFoundException() {
         Long id = 2L;
         assertThrows(NotFoundException.class, () -> customerQueryService.getById(id));
     }

@@ -2,8 +2,8 @@ package com.qnbeyond.customermanagement.controller;
 
 import com.qnbeyond.customermanagement.common.exception.NotFoundException;
 import com.qnbeyond.customermanagement.controller.customer.CustomerQueryController;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
+import com.qnbeyond.customermanagement.model.entity.Customer;
+import com.qnbeyond.customermanagement.model.entity.CustomerBuilder;
 import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
@@ -25,7 +25,7 @@ class CustomerQueryControllerTest extends AbstractControllerTest {
 
     @Test
     void happyPath_getAll() {
-        List<CustomerEntity> customerEntities = Collections.singletonList(CustomerEntityBuilder.getValidCustomerEntity());
+        List<Customer> customerEntities = Collections.singletonList(CustomerBuilder.getValidCustomer());
         when(customerQueryService.getAll()).thenReturn(customerEntities);
 
         client.get()
@@ -40,12 +40,12 @@ class CustomerQueryControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    void givenValidId_whenGetCustomerEntity_thenReturnCustomerResponse() {
-        CustomerEntity customerEntity = CustomerEntityBuilder.getValidCustomerEntity();
-        when(customerQueryService.getById(customerEntity.getId())).thenReturn(customerEntity);
+    void givenValidId_whenGetCustomer_thenReturnCustomerResponse() {
+        Customer customer = CustomerBuilder.getValidCustomer();
+        when(customerQueryService.getById(customer.getId())).thenReturn(customer);
 
         client.get()
-                .uri(GET_BY_ID_ENDPOINT, customerEntity.getId())
+                .uri(GET_BY_ID_ENDPOINT, customer.getId())
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
@@ -56,7 +56,7 @@ class CustomerQueryControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    void givenInvalidId_whenGetCustomerEntity_thenThrowNotFoundException() {
+    void givenInvalidId_whenGetCustomer_thenThrowNotFoundException() {
         Long id = 2L;
         when(customerQueryService.getById(id)).thenThrow(new NotFoundException(id.toString()));
 

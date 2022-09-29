@@ -22,7 +22,7 @@ import static com.qnbeyond.customermanagement.common.util.CustomerManagementCons
 @Table(name = "tbl_customer")
 @Builder
 @EqualsAndHashCode(callSuper = true)
-public class CustomerEntity extends AbstractEntity implements UserDetails {
+public class Customer extends AbstractEntity implements UserDetails {
 
     @Serial
     private static final long serialVersionUID = -3252345455177095611L;

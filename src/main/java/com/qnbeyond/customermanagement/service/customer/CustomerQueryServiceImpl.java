@@ -1,7 +1,7 @@
 package com.qnbeyond.customermanagement.service.customer;
 
 import com.qnbeyond.customermanagement.common.exception.NotFoundException;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
+import com.qnbeyond.customermanagement.model.entity.Customer;
 import com.qnbeyond.customermanagement.repository.CustomerQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,18 +15,18 @@ public class CustomerQueryServiceImpl implements CustomerQueryService {
     private final CustomerQueryRepository customerQueryRepository;
 
     @Override
-    public List<CustomerEntity> getAll() {
+    public List<Customer> getAll() {
         return customerQueryRepository.findAll();
     }
 
     @Override
-    public CustomerEntity getById(Long id) {
+    public Customer getById(Long id) {
         return customerQueryRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id.toString()));
     }
 
     @Override
-    public CustomerEntity getByEmail(String email) {
+    public Customer getByEmail(String email) {
         return customerQueryRepository.findByEmail(email)
                 .orElseThrow(() -> new NotFoundException(email));
     }

@@ -3,8 +3,8 @@ package com.qnbeyond.customermanagement.controller;
 import com.qnbeyond.customermanagement.controller.customer.CustomerCommandController;
 import com.qnbeyond.customermanagement.model.dto.request.CustomerRequestBuilder;
 import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
+import com.qnbeyond.customermanagement.model.entity.Customer;
+import com.qnbeyond.customermanagement.model.entity.CustomerBuilder;
 import com.qnbeyond.customermanagement.service.customer.CustomerCommandService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
@@ -23,10 +23,10 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
     private static final String PATH_VARIABLE_ID_ENDPOINT = CUSTOMER_ENDPOINT + "/{id}";
 
     @Test
-    void givenValidCustomerRequest_whenCreateCustomerEntity_thenReturnCustomerResponse() {
+    void givenValidCustomerRequest_whenCreateCustomer_thenReturnCustomerResponse() {
         CustomerRequest customerRequest = CustomerRequestBuilder.getValidCustomerRequest();
-        CustomerEntity customerEntity = CustomerEntityBuilder.getValidCustomerEntity();
-        when(customerCommandService.create(any(CustomerRequest.class))).thenReturn(customerEntity);
+        Customer customer = CustomerBuilder.getValidCustomer();
+        when(customerCommandService.create(any(CustomerRequest.class))).thenReturn(customer);
 
         client.post()
                 .uri(CUSTOMER_ENDPOINT)
@@ -41,13 +41,13 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    void givenValidCustomerRequest_whenUpdateCustomerEntity_thenReturnCustomerResponse() {
+    void givenValidCustomerRequest_whenUpdateCustomer_thenReturnCustomerResponse() {
         CustomerRequest customerRequest = CustomerRequestBuilder.getValidCustomerRequest();
-        CustomerEntity customerEntity = CustomerEntityBuilder.getValidCustomerEntity();
-        when(customerCommandService.update(anyLong(), any(CustomerRequest.class))).thenReturn(customerEntity);
+        Customer customer = CustomerBuilder.getValidCustomer();
+        when(customerCommandService.update(anyLong(), any(CustomerRequest.class))).thenReturn(customer);
 
         client.put()
-                .uri(PATH_VARIABLE_ID_ENDPOINT, customerEntity.getId())
+                .uri(PATH_VARIABLE_ID_ENDPOINT, customer.getId())
                 .bodyValue(customerRequest)
                 .exchange()
                 .expectStatus().isOk()
@@ -59,12 +59,12 @@ class CustomerCommandControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    void givenValidCustomerRequest_whenDeleteCustomerEntity_thenReturnCustomerResponse() {
-        CustomerEntity customerEntity = CustomerEntityBuilder.getValidCustomerEntity();
-        when(customerCommandService.delete(anyLong())).thenReturn(customerEntity);
+    void givenValidCustomerRequest_whenDeleteCustomer_thenReturnCustomerResponse() {
+        Customer customer = CustomerBuilder.getValidCustomer();
+        when(customerCommandService.delete(anyLong())).thenReturn(customer);
 
         client.delete()
-                .uri(PATH_VARIABLE_ID_ENDPOINT, customerEntity.getId())
+                .uri(PATH_VARIABLE_ID_ENDPOINT, customer.getId())
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()

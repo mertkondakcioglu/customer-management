@@ -1,13 +1,13 @@
 package com.qnbeyond.customermanagement.service.customer;
 
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
+import com.qnbeyond.customermanagement.model.entity.Customer;
 
 import java.util.List;
 
 public interface CustomerQueryService {
-    List<CustomerEntity> getAll();
+    List<Customer> getAll();
 
-    CustomerEntity getById(Long id);
+    Customer getById(Long id);
 
-    CustomerEntity getByEmail(String email);
+    Customer getByEmail(String email);
 }

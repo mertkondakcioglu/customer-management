@@ -2,7 +2,7 @@ package com.qnbeyond.customermanagement.service.customer;
 
 import com.qnbeyond.customermanagement.common.mapper.CustomerRequestMapper;
 import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
+import com.qnbeyond.customermanagement.model.entity.Customer;
 import com.qnbeyond.customermanagement.repository.CustomerCommandRepository;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
@@ -20,28 +20,28 @@ public class CustomerCommandServiceImpl implements CustomerCommandService {
     private final CustomerRequestMapper mapper = Mappers.getMapper(CustomerRequestMapper.class);
 
     @Override
-    public CustomerEntity create(CustomerRequest request) {
+    public Customer create(CustomerRequest request) {
         request.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        CustomerEntity customerEntity = mapper.map(request);
-        return customerCommandRepository.save(customerEntity);
+        Customer customer = mapper.map(request);
+        return customerCommandRepository.save(customer);
     }
 
     @Override
-    public CustomerEntity update(Long id, CustomerRequest request) {
+    public Customer update(Long id, CustomerRequest request) {
         request.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        CustomerEntity customerEntityToUpdated = customerQueryService.getById(id);
-        mapper.requestToEntity(request, customerEntityToUpdated);
+        Customer customerToUpdated = customerQueryService.getById(id);
+        mapper.requestToEntity(request, customerToUpdated);
 
-        return customerCommandRepository.save(customerEntityToUpdated);
+        return customerCommandRepository.save(customerToUpdated);
     }
 
     @Override
-    public CustomerEntity delete(Long id) {
-        CustomerEntity customerEntityToDeleted = customerQueryService.getById(id);
-        customerCommandRepository.delete(customerEntityToDeleted);
+    public Customer delete(Long id) {
+        Customer customerToDeleted = customerQueryService.getById(id);
+        customerCommandRepository.delete(customerToDeleted);
 
-        return customerEntityToDeleted;
+        return customerToDeleted;
     }
 }

@@ -2,8 +2,8 @@ package com.qnbeyond.customermanagement.service;
 
 import com.qnbeyond.customermanagement.model.dto.request.CustomerRequestBuilder;
 import com.qnbeyond.customermanagement.model.dto.request.customer.CustomerRequest;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntity;
-import com.qnbeyond.customermanagement.model.entity.CustomerEntityBuilder;
+import com.qnbeyond.customermanagement.model.entity.Customer;
+import com.qnbeyond.customermanagement.model.entity.CustomerBuilder;
 import com.qnbeyond.customermanagement.repository.CustomerCommandRepository;
 import com.qnbeyond.customermanagement.service.customer.CustomerCommandServiceImpl;
 import com.qnbeyond.customermanagement.service.customer.CustomerQueryService;
@@ -32,35 +32,35 @@ class CustomerCommandServiceTest extends AbstractUnitTest {
     private PasswordEncoder passwordEncoder;
 
     @Test
-    void givenValidCustomerRequest_whenCreateCustomerEntity_thenReturnCustomerEntity() {
+    void givenValidCustomerRequest_whenCreateCustomer_thenReturnCustomer() {
         CustomerRequest testCustomerRequest = CustomerRequestBuilder.getValidCustomerRequest();
-        CustomerEntity testCustomerEntity = CustomerEntityBuilder.getValidCustomerEntity();
+        Customer testCustomer = CustomerBuilder.getValidCustomer();
 
-        when(customerCommandRepository.save(any(CustomerEntity.class))).thenReturn(testCustomerEntity);
-        CustomerEntity customerEntity = customerCommandService.create(testCustomerRequest);
+        when(customerCommandRepository.save(any(Customer.class))).thenReturn(testCustomer);
+        Customer customer = customerCommandService.create(testCustomerRequest);
 
-        assertThat(testCustomerEntity).isEqualTo(customerEntity);
+        assertThat(testCustomer).isEqualTo(customer);
     }
 
     @Test
-    void givenValidCustomerRequest_whenUpdateCustomerEntity_thenReturnCustomerEntity() {
+    void givenValidCustomerRequest_whenUpdateCustomer_thenReturnCustomer() {
         CustomerRequest testCustomerRequest = CustomerRequestBuilder.getValidCustomerRequest();
-        CustomerEntity testCustomerEntity = CustomerEntityBuilder.getValidCustomerEntity();
+        Customer testCustomer = CustomerBuilder.getValidCustomer();
 
-        when(customerQueryService.getById(anyLong())).thenReturn(testCustomerEntity);
-        when(customerCommandRepository.save(any(CustomerEntity.class))).thenReturn(testCustomerEntity);
-        CustomerEntity customerEntity = customerCommandService.update(testCustomerEntity.getId(), testCustomerRequest);
+        when(customerQueryService.getById(anyLong())).thenReturn(testCustomer);
+        when(customerCommandRepository.save(any(Customer.class))).thenReturn(testCustomer);
+        Customer customer = customerCommandService.update(testCustomer.getId(), testCustomerRequest);
 
-        assertThat(testCustomerEntity).isEqualTo(customerEntity);
+        assertThat(testCustomer).isEqualTo(customer);
     }
 
     @Test
-    void givenValidCustomerRequest_whenDeleteCustomerEntity_thenReturnCustomerEntity() {
-        CustomerEntity testCustomerEntity = CustomerEntityBuilder.getValidCustomerEntity();
+    void givenValidCustomerRequest_whenDeleteCustomer_thenReturnCustomer() {
+        Customer testCustomer = CustomerBuilder.getValidCustomer();
 
-        when(customerQueryService.getById(anyLong())).thenReturn(testCustomerEntity);
-        customerCommandService.delete(testCustomerEntity.getId());
+        when(customerQueryService.getById(anyLong())).thenReturn(testCustomer);
+        customerCommandService.delete(testCustomer.getId());
 
-        verify(customerCommandRepository, times(1)).delete(any(CustomerEntity.class));
+        verify(customerCommandRepository, times(1)).delete(any(Customer.class));
     }
 }
