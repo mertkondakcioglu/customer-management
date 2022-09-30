@@ -1,7 +1,7 @@
 package com.qnbeyond.customermanagement.common.config;
 
 import com.qnbeyond.customermanagement.common.util.jwt.JwtEntryPoint;
-import com.qnbeyond.customermanagement.common.util.jwt.JwtRequestFilter;
+import com.qnbeyond.customermanagement.common.filter.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
