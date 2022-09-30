@@ -21,5 +21,5 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
 
 jwt:
-  secret: qnbeyond2022
+  secret: mertosi2022
   expirationMs: 86400000

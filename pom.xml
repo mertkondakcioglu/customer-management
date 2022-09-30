@@ -8,7 +8,7 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.qnbeyond</groupId>
+	<groupId>com.mertosi</groupId>
 	<artifactId>customermanagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customer-management</name>
