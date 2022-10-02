@@ -1,6 +1,6 @@
 package com.mertosi.customermanagement.controller.customer;
 
-import com.mertosi.customermanagement.common.mapper.CustomerResponseMapper;
+import com.mertosi.customermanagement.common.mapper.customer.CustomerResponseMapper;
 import com.mertosi.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.mertosi.customermanagement.model.dto.response.BaseResponse;
 import com.mertosi.customermanagement.model.dto.response.customer.CustomerResponse;

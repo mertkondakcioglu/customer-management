@@ -20,7 +20,7 @@ import java.io.IOException;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class ApiRequestFilter extends OncePerRequestFilter {
+public class ApiLogRequestFilter extends OncePerRequestFilter {
 
     private final ApiLogCommandService apiLogCommandService;
     private final JwtUtils jwtUtils;

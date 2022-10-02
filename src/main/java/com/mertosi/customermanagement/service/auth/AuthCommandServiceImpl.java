@@ -1,6 +1,6 @@
 package com.mertosi.customermanagement.service.auth;
 
-import com.mertosi.customermanagement.common.mapper.CustomerResponseMapper;
+import com.mertosi.customermanagement.common.mapper.customer.CustomerResponseMapper;
 import com.mertosi.customermanagement.common.util.jwt.JwtUtils;
 import com.mertosi.customermanagement.model.dto.request.auth.AuthRequest;
 import com.mertosi.customermanagement.model.dto.response.auth.AuthResponse;

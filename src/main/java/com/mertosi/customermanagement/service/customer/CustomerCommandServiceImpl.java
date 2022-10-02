@@ -1,6 +1,6 @@
 package com.mertosi.customermanagement.service.customer;
 
-import com.mertosi.customermanagement.common.mapper.CustomerRequestMapper;
+import com.mertosi.customermanagement.common.mapper.customer.CustomerRequestMapper;
 import com.mertosi.customermanagement.model.dto.request.customer.CustomerRequest;
 import com.mertosi.customermanagement.model.entity.Customer;
 import com.mertosi.customermanagement.repository.customer.CustomerCommandRepository;
